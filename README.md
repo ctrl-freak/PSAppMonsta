@@ -12,4 +12,4 @@ PowerShell class to simplify [AppMonsta](https://appmonsta.com/) API calls for a
     }
     $AppMonsta.GetAppDetails($AppID)
     
-See also [Check-AppVersion.ps1](/ctrl-freak/PSAppMonsta/blob/master/Check-AppVersion.ps1)
+See also [Check-AppVersion.ps1](/Check-AppVersion.ps1)
