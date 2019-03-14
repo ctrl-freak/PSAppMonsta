@@ -1,9 +1,9 @@
 Class AppMonsta {
-    [Parameter(Mandatory=$true)][String] $APIKey = ''
-    [Parameter(Mandatory=$true)][String] $APIEndpoint = 'https://api.appmonsta.com'
-    [Parameter(Mandatory=$true)][String] $APIVersion = '/v1'
-    [Parameter(Mandatory=$true)][String] $APIStore # '/stores/android' '/stores/itunes'
-    [Parameter(Mandatory=$true)][String] $APICountryCode = 'ALL'
+    [String] $APIKey = ''
+    [String] $APIEndpoint = 'https://api.appmonsta.com'
+    [String] $APIVersion = '/v1'
+    [String] $APIStore # '/stores/android' '/stores/itunes'
+    [String] $APICountryCode = 'ALL'
 
     AppMonsta () {}
 
