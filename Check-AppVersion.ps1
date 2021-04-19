@@ -1,11 +1,11 @@
 ﻿param (
     [Array] $App = @()
-    ,[String] $File
+    ,[String] $File = ''
     ,[Parameter(Mandatory=$true)][String] $APIKey # = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     ,[String] $APIStore = '/stores/android'
 )
 
-If ($File -ne $null) {
+If ($File -ne $null -and $File -ne '') {
     $App = (Import-PowerShellDataFile $File).Apps
 }
 
