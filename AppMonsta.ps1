@@ -21,8 +21,13 @@ Class AppMonsta {
             Authorization = $BasicHeader
         }
         
-        # Use TLS 1.3, AppMonsta API endpoint does not support TLS < 1.2: https://www.ssllabs.com/ssltest/analyze.html?d=api.appmonsta.com
-        [Net.ServicePointManager]::SecurityProtocol = 'Tls12, Tls13'
+        try {
+            # Use TLS 1.3, AppMonsta API endpoint does not support TLS < 1.2: https://www.ssllabs.com/ssltest/analyze.html?d=api.appmonsta.com
+            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls13 -bor [Net.SecurityProtocolType]::Tls12
+        } catch {
+            # Fall back to TLS 1.2 if 1.3 not enabled
+            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        }
 
         $Uri = ($this.APIEndpoint+$this.APIVersion+$this.APIStore+$Resource+'.json?country='+$APICountryCode)
         $Return = Invoke-RestMethod -Method Get -Uri $Uri -Headers $Headers
